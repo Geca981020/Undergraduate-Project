@@ -1,0 +1,237 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "Aircon[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Aircon[1]",
+					"strict" : false
+				},
+				{
+					"name" : "win3",
+					"strict" : false
+				},
+				{
+					"name" : "win4",
+					"strict" : false
+				},
+				{
+					"name" : "win5",
+					"strict" : false
+				},
+				{
+					"name" : "win6",
+					"strict" : false
+				},
+				{
+					"name" : "sun",
+					"strict" : false
+				},
+				{
+					"name" : "wiper[0]",
+					"strict" : false
+				},
+				{
+					"name" : "wiper[1]",
+					"strict" : false
+				},
+				{
+					"name" : "handle[0]",
+					"strict" : false
+				},
+				{
+					"name" : "handle[1]",
+					"strict" : false
+				},
+				{
+					"name" : "engine[0]",
+					"strict" : false
+				},
+				{
+					"name" : "engine[1]",
+					"strict" : false
+				},
+				{
+					"name" : "engine[2]",
+					"strict" : false
+				},
+				{
+					"name" : "engine[3]",
+					"strict" : false
+				},
+				{
+					"name" : "lightSen",
+					"strict" : false
+				},
+				{
+					"name" : "UVSen[3]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[8]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[9]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[7]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[4]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[5]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[6]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[2]",
+					"strict" : false
+				},
+				{
+					"name" : "waterSen[3]",
+					"strict" : false
+				},
+				{
+					"name" : "ultraSen",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[4]",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dBSen[0]",
+					"strict" : false
+				},
+				{
+					"name" : "smokeSen[2]",
+					"strict" : false
+				},
+				{
+					"name" : "smokeSen[0]",
+					"strict" : false
+				},
+				{
+					"name" : "smokeSen[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[5]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[6]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[3]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[1]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[2]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[7]",
+					"strict" : false
+				},
+				{
+					"name" : "dustSen[4]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[5]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[6]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[7]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[8]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[3]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[1]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[2]",
+					"strict" : false
+				},
+				{
+					"name" : "tenSen[4]",
+					"strict" : false
+				},
+				{
+					"name" : "blackbox[0]",
+					"strict" : false
+				},
+				{
+					"name" : "blackbox[2]",
+					"strict" : false
+				},
+				{
+					"name" : "blackbox[1]",
+					"strict" : false
+				},
+				{
+					"name" : "gps[0]",
+					"strict" : false
+				},
+				{
+					"name" : "gps[1]",
+					"strict" : false
+				},
+				{
+					"name" : "gps[2]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
