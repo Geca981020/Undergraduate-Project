@@ -1,0 +1,160 @@
+def Normalization(X):
+    # 앞의 0b를 제거하고, 0을 앞부터 채워 블록 크기를 32bit로 맞춘다.
+    X = X.replace('0b', '')
+    length = 32 - len(X)
+    for i in range(length):
+        X = '0' + X
+    return X
+
+def Sfunction(X):
+    # array 생성
+    Xarray = [0, 0, 0, 0, 0, 0, 0, 0]
+    # array에 값을 4개씩 넣고, 2진수를 10진수 숫자로 변환
+    for i in range(8):
+        Xarray[7 - i] = X[4 * i:4 * i + 4]
+        Xarray[7 - i] = BinarytoDecimal(Xarray[7 - i])
+    #print("Xarray: %s" % Xarray)
+
+    # X array에 S 함수를 적용시켜 Y를 생성
+    Y = [0, 0, 0, 0, 0, 0, 0, 0]
+    for i in range(8):
+        Y[i] = Sort(Xarray[i])
+    #print("Yarray: %s" % Y)
+    return Y
+
+def Matrixmul(Y):
+    Z = [0, 0, 0, 0, 0, 0, 0, 0]
+    Z[0] = Y[0] ^ Y[2] ^ Y[3] ^ Y[5] ^ Y[6] ^ Y[7]
+    Z[1] = Y[0] ^ Y[1] ^ Y[3] ^ Y[4] ^ Y[6] ^ Y[7]
+    Z[2] = Y[0] ^ Y[1] ^ Y[2] ^ Y[4] ^ Y[5] ^ Y[7]
+    Z[3] = Y[1] ^ Y[2] ^ Y[3] ^ Y[4] ^ Y[5] ^ Y[6]
+    Z[4] = Y[0] ^ Y[1] ^ Y[5] ^ Y[6] ^ Y[7]
+    Z[5] = Y[1] ^ Y[2] ^ Y[4] ^ Y[6] ^ Y[7]
+    Z[6] = Y[2] ^ Y[3] ^ Y[4] ^ Y[5] ^ Y[7]
+    Z[7] = Y[0] ^ Y[3] ^ Y[4] ^ Y[5] ^ Y[6]
+    #print("Zarray: %s" % Z)
+    newv = hex(Z[0])
+    newv = newv.replace('0x', '')
+    newv2 = hex(Z[1])
+    newv2 = newv2.replace('0x', '')
+    newv3 = hex(Z[2])
+    newv3 = newv3.replace('0x', '')
+    newv4 = hex(Z[3])
+    newv4 = newv4.replace('0x', '')
+    newv5 = hex(Z[4])
+    newv5 = newv5.replace('0x', '')
+    newv6 = hex(Z[5])
+    newv6 = newv6.replace('0x', '')
+    newv7 = hex(Z[6])
+    newv7 = newv7.replace('0x', '')
+    newv8 = hex(Z[7])
+    newv8 = newv8.replace('0x', '')
+    newv = newv8 + newv7 + newv6 + newv5 + newv4 + newv3 + newv2 + newv
+    #print("16진수 newv: %s" % newv)
+    newv = int(newv, 16)
+    #print("10진수 newv: %s" % newv)
+    return newv
+
+def BinarytoDecimal(str):
+    base = 2
+
+    answer = 0
+    for idx, i in enumerate(str[::-1]):
+        answer += int(i) * (base ** idx)
+    return answer
+
+def Sort(decimal):
+    value = 0
+    if decimal == 0:
+        value = 14
+    elif decimal == 1:
+        value = 4
+    elif decimal == 2:
+        value = 13
+    elif decimal == 3:
+        value = 1
+    elif decimal == 4:
+        value = 2
+    elif decimal == 5:
+        value = 15
+    elif decimal == 6:
+        value = 11
+    elif decimal == 7:
+        value = 8
+    elif decimal == 8:
+        value = 3
+    elif decimal == 9:
+        value = 10
+    elif decimal == 10:
+        value = 6
+    elif decimal == 11:
+        value = 12
+    elif decimal == 12:
+        value = 5
+    elif decimal == 13:
+        value = 9
+    elif decimal == 14:
+        value = 0
+    elif decimal == 15:
+        value = 7
+    else:
+        print("Sort Error")
+
+    return value
+
+def BinarytoHex(X):
+    X = Normalization(X)
+    # array 생성
+    Xarray = [0, 0, 0, 0, 0, 0, 0, 0]
+    # array에 값을 4개씩 넣고, 2진수를 10진수 숫자로 변환
+    for i in range(8):
+        Xarray[7 - i] = X[4 * i:4 * i + 4]
+        Xarray[7 - i] = BinarytoDecimal(Xarray[7 - i])
+    # print("Xarray %s" %Xarray)
+    newv = hex(Xarray[0])
+    newv = newv.replace('0x', '')
+    newv2 = hex(Xarray[1])
+    newv2 = newv2.replace('0x', '')
+    newv3 = hex(Xarray[2])
+    newv3 = newv3.replace('0x', '')
+    newv4 = hex(Xarray[3])
+    newv4 = newv4.replace('0x', '')
+    newv5 = hex(Xarray[4])
+    newv5 = newv5.replace('0x', '')
+    newv6 = hex(Xarray[5])
+    newv6 = newv6.replace('0x', '')
+    newv7 = hex(Xarray[6])
+    newv7 = newv7.replace('0x', '')
+    newv8 = hex(Xarray[7])
+    newv = newv8 + newv7 + newv6 + newv5 + newv4 + newv3 + newv2 + newv
+    # print("16진수 newv: %s" % newv)
+    # print(newv)
+    # print("10진수 newv: %s" % newv)
+    return newv
+
+def BlockCipherEncrypt(K, P):
+    # XOR 연산 현재 X는 String Type
+    X = bin(K^P)
+
+    for i in range(8):
+        X = Normalization(X)
+        #print("Normalization: %s" %X)
+        Y = Sfunction(X)
+        #print("Sfunction: %s" %Y)
+        Z = Matrixmul(Y)
+        X = bin(Z^K)
+
+    #print("변환전: %s" % X)
+    X = BinarytoHex(X)
+
+    return X
+
+def main():
+    print("블록 암호 프로그램을 시작합니다.")
+    P = 0x12345678 # 평문 블록
+    K = 0xC58FA10B # 키
+    C = BlockCipherEncrypt(K, P)
+    print("암호화 된 블록: %s" %C)
+
+if __name__ == "__main__":
+    main()
